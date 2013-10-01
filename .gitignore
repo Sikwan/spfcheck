@@ -1,3 +1,4 @@
 build/
 dist/
 sikwan.spfcheck.egg-info/
+*.pyc

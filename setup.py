@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = "0.1.1"
+version = "0.1b"
 
 README = os.path.join(os.path.dirname(__file__), 'README.txt')
 long_description = open(README).read() + '\n\n'
@@ -15,6 +15,7 @@ setup(name="sikwan.spfcheck",
         test_require=["Nose"],
         keywords="sikwan spf spfcheck",
         author="Sikwan",
+        url="https://github.com/Sikwan/spfcheck",
         license="GPL",
         packages=find_packages(),
         namespace_packages=['sikwan'],

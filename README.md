@@ -13,6 +13,6 @@ from sikwan.spfcheck import SPFCheck
 
 
 sc = SPFCheck()
-print sc.verify(ip, domain)
+print sc.verify(ip, domain, version=1)
 
 ```

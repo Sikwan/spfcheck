@@ -33,12 +33,25 @@ class SPFCheck:
         if cls._logger is not None:
             cls._logger.info('Checking %s and %s with version %i' % (domain, ip, version))
 
-        txt_list =  cls.gather_txt(domain)
+        try:
+            txt_list =  cls.gather_txt(domain)
+        except dns.resolver.NXDOMAIN:
+            return ('PermError', 'No DNS record for the specified domain.')
+        except dns.resolver.NoAnswer:
+            return ('TempError', 'No anwser from DNS record.')
+        except Exception, e:
+            if cls._logger is not None:
+                cls._logger.critcal("Error during spf process.")
+            raise e
 
         spf = cls.gather_spf(txt_list, version)
         if spf:
             try:
                 result = cls.process_spf(spf, ip, domain)
+            except dns.resolver.NXDOMAIN:
+                return ('PermError', 'No DNS record for the specified domain.')
+            except dns.resolver.NoAnswer:
+                return ('TempError', 'No anwser from DNS record.')
             except Exception, e:
                 if cls._logger is not None:
                     cls._logger.critcal("Error during spf process.")

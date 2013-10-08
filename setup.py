@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = "0.1.3dev"
+version = "0.1.4dev"
 
 README = os.path.join(os.path.dirname(__file__), 'README.txt')
 long_description = open(README).read() + '\n\n'
@@ -12,7 +12,7 @@ setup(name="sikwan.spfcheck",
         long_description=long_description,
         install_requires=["dnspython", "netaddr"],
         keywords="sikwan spf spfcheck",
-        author="Sikwan",
+        author="Francois Vanderkelen",
         author_email="vanderkelen.francois@gmail.com",
         url="https://github.com/Sikwan/spfcheck",
         license="GPL",

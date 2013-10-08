@@ -242,11 +242,13 @@ class SPFCheck:
                                 cls._logger.critcal("Error during DNS Query.")
                             print e
                         else:
-                            return result
+                            if result[0] != "None":
+                                return result
             else:
                 raise Exception("SPF Loop, more than 11 includes level.")
         elif rule == 'all':
-            return (action, "%s match rule %s" % (ip, rule))
+            if inc_index == 0:
+                return (action, "%s match rule %s" % (ip, rule))
         else:
             raise Exception('Rule %s is not managed.' % rule)
         return False

@@ -248,7 +248,10 @@ class SPFCheck:
                 raise Exception("SPF Loop, more than 11 includes level.")
         elif rule == 'all':
             if inc_index == 0:
-                return (action, "%s match rule %s" % (ip, rule))
+                if action != 'Pass':
+                    return (action, "%s does not match any rules" % ip)
+                else:
+                    return (action, "%s match rule %s" % (ip, rule))
         else:
             raise Exception('Rule %s is not managed.' % rule)
         return False

@@ -1,6 +1,6 @@
 SPFChecker
 
-version: 0.1.2dev
+version: 0.1.5dev
 
 Description:
 This package is used to validate SPF or SenderID for your emails. It is your job to gather the sending domain and ip,

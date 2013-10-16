@@ -1,6 +1,6 @@
 SPFChecker
 
-version: 0.1.5dev
+version: 0.1.6dev
 
 Description:
 This package is used to validate SPF or SenderID for your emails. It is your job to gather the sending domain and ip,
@@ -19,6 +19,6 @@ print sc.verify(ip, domain, version=1)
 
 
 Changelog:
-
+* 0.1.6dev : Added PermError if DNS query timeout.
 * 0.1.5dev : Changed message when SPF check fail on "all" rule (was ambiguous)
 * 0.1.4dev : Hotfix remove all rule from includes.

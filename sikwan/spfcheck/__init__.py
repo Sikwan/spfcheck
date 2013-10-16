@@ -39,6 +39,8 @@ class SPFCheck:
             return ('PermError', 'No DNS record for the specified domain.')
         except dns.resolver.NoAnswer:
             return ('TempError', 'No anwser from DNS record.')
+        except dns.exception.Timeout:
+            return ('PermError', 'DNS record timeout for the specified domain.')
         except Exception, e:
             if cls._logger is not None:
                 cls._logger.critcal("Error during spf process.")

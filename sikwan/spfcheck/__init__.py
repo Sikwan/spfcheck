@@ -128,7 +128,7 @@ class SPFCheck:
                     return (action, "%s match rule %s" % (ip, rule))
             if ip == rule[4:]:
                 return (action, "%s match rule %s" % (ip, rule))
-        elif rule[:1] == 'a' and len(rule) > 3:
+        elif rule[:1] == 'a' and rule[:3] == 'all':
             reg = re.match('^a:?(?P<domain>[\w\d\.]+)?/?(?P<prefix_length>[\d]{1,2})?', rule)
             if reg.group('domain') is not None:
                 domain = reg.group('domain')
